@@ -8,6 +8,7 @@
         <h2 class="subtitle"> Team Members</h2>
           <div class="columns">
 
+          <% if !@page.nil? %>
           <% @team.users.in_groups_of(@page,false).each do |group|  %>
             <div class="column is-4">
              <% group.each do |member| %>
@@ -26,7 +27,7 @@
               </div>
               <% end %>
             </div>
-        
+            <% end %>
             <% end %>
           </div>
       </div>

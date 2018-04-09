@@ -18,7 +18,9 @@ class TeamsController < ApplicationController
       member = member + square
       @page = member
     else
-    @page = Math.sqrt(@page).ceil
+      if(!@page.blank?)
+        @page = Math.sqrt(@page).ceil
+      end
     end
 
   end
