@@ -1,0 +1,30 @@
+version: '2'
+services:
+  db:
+    image: 'postgres:alpine'
+    environment:
+      - POSTGRES_PASSWORD
+    volumes:
+      - "db-data:/var/lib/postgresql/data"
+
+  app: &app_base
+    build: .
+    environment:
+      - SECRET_KEY_BASE
+      - DB_HOST=db
+      - DB_USER
+      - DB_PASSWORD
+      - RAILS_ENV
+      - RAILS_MAX_THREADS
+      - APP_HOST
+      - SENDGRID_USERNAME
+      - SENDGRID_PASSWORD 
+    ports:
+      - "3000:80"
+    links:   
+      - db
+
+  
+volumes:
+  db-data:
+  es-data:

@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.4.3'
-
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
@@ -14,6 +12,8 @@ gem 'rails', '~> 5.1.5'
 gem 'pg'
 
 gem 'figaro'
+
+gem 'foreman'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
